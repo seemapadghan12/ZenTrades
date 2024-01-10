@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<!-- *************************  HTML HEAD  ********************************* -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+  <!-- CSS STYLES -->
+  <style media="screen">
+    /**************************************************************************/
+    /* GENERIC                                                                */
+    /**************************************************************************/
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    
+    *,
+    *:before,
+    *:after{
+      box-sizing: border-box;
+    }
+
+    body{
+      font-family: Helvetica, Arial, Sans-Serif;
+      font-weight: normal;
+      line-height: 1.4em;
+      font-size: 0.9em;
+      color: #000;
+    }
+
+    
+    /**************************************************************************/
+    /* DESKTOP                                                                */
+    /**************************************************************************/
+    
+    /* FIGURE */
+    figure{
+      min-width: 200px;
+      max-width: 600px;
+      margin: 2rem;
+      padding: 1.5rem 2rem 2rem;
+      border: 1px solid #000;
+    }
+    
+    /* TABLE */
+    .barChart_h{
+      display: block;
+      height: auto;                         /* Do I need this? */
+      width: 100%;
+      overflow-wrap: break-word;
+      border-spacing: 0;
+    }
+    
+    /* CAPTION */
+    .barChart_h caption{
+      display: block;
+      padding: 0 0 1rem 0;
+      line-height: 1.1;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-align: left;
+    }
+    
+    /* TBODY */    
+    .barChart_h tbody{
+      display: block
+    }
+
+    .barChart_h tbody:after{
+      content: "";
+      display: block;
+      clear: both;
+      height: 0;
+    }
+    
+    /* TH */
+    .barChart_h tbody th{
+      width: 25%;
+      font-weight: normal;
+      text-align: right;
+    }
+
+    /* TD */
+    .barChart_h tbody td{
+      border-left: 2px solid #F00;          /* X-AXIS. (vertical) */
+      
+      border-right: 1px solid #DDD;         /* Finish out repeating vertical-gridlines. */
+      
+      background-image: linear-gradient(to right, #DDD 1px, transparent 1px);
+    }
+
+    /* TH+TD */
+    .barChart_h tbody th,
+    .barChart_h tbody td{
+      padding: 0.5rem 0 0.4rem 0;           /* Space around Bars. */
+    }
+                                            
+    .barChart_h tbody tr.firstRow th,
+    .barChart_h tbody tr.firstRow td{
+      padding: 1rem 0 0.5rem 0;             /* Add spacing. */
+    }
+    
+    .barChart_h tbody tr.lastRow th,
+    .barChart_h tbody tr.lastRow td{
+      padding: 0.5rem 0 1rem 0;             /* Add spacing. */
+    }
+    
+    /* BARS */
+    .barChart_h tbody td span{
+      position: relative;                   /* Needed for absolute-positioning of Bar-value. */
+      display: block;                       /* Expands <span> to fill <td> */
+      height: 20px;
+      background: #5cae63;
+      border-top: 1px solid #000;
+      border-right: 1px solid #000;
+      border-bottom: 1px solid #000;
+    }
+    
+    /* BAR-VALUES */
+    .barChart_h tbody td span b{
+      position: absolute;
+      left: 100%;
+      top: 0;
+      right: auto;
+      bottom: 0;
+      display: block;
+      padding: 0 0 0 0.5rem;
+    }
+        
+    /* Y-AXIS TITLE+LABELS */
+    .barChart_h tbody th.y-axis{
+      display: block;
+      width: 100%;
+/*      width: calc(100% + 2px);            /* Hide right border. /**/
+
+      display: flex;                        /* Create Flexbox (Flex-Container). */
+      padding-bottom: 1.4rem;
+      font-weight: bold;
+      border-bottom: 2px solid #F00;        /* Y-AXIS. (horizontal) */
+      background-color: #FFF;
+    }
+
+    
+    /* NEED HELP WITH STYLES BELOW... */
+
+    /* Y-AXIS TITLE */
+    .barChart_h tbody .rotate{
+      display: block;
+    }
+
+    /* Y-AXIS LABELS */
+    .barChart_h tbody th.y-axis ol.segments{
+      position: absolute;
+      top: auto;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      display: flex;                        /* Create Flexbox (Flex-Container). */
+      flex-direction: row;
+      font-size: 0.9rem;
+    }
+
+    .barChart_h tbody ol.segments li{
+      flex: 1 0 0;
+      text-align: right;
+    }
+
+    .barChart_h tbody ol.segments li b{
+      display: inline-flex;
+      transform: translate(50%, 0%);
+    }
+
+    .barChart_h tbody ol.segments li.zero{
+      left: 0;
+      right: auto;
+      bottom: auto;
+      top: 0;
+    }
+
+    .barChart_h tbody ol.segments li.zero b{
+      transform: translate(-50%, 0%);
+    }
+
+    /* MOBILE                                                                 */
+    @media screen and (max-width: 414px){
+      body{
+        font-size: 0.8em;
+      }
+      
+      /* CAPTION */
+      .barChart_h caption{
+        font-size: 1rem;
+      }
+
+      /* FIGURE */
+      figure{
+        margin: 0;
+        padding: 1rem;
+      }
+      
+      /* TD */
+      .barChart_h tbody td{
+        width: 60%;
+      }
+    }
+        
+  </style>
+</head>
+
+<!-- *************************  HTML BODY  ********************************* -->
+<body>
+  <figure>
+    <table class="barChart_h">
+      <caption>Revenue By Job Location</caption>
+
+      <tbody>
+        <!-- Y-axis -->
+        <tr>
+          <th class="blankCell"></th>
+          <th class="y-axis">
+            <div class="rotate"></div>
+            <ol class="segments">
+              <li><b>5000</b></li>
+              <li><b>10000</b></li>
+              <li><b>15000</b></li>
+              <li><b>20000</b></li>
+              <li><b>25000</b></li>
+              <li><b>30000</b></li>
+              <li><b>35000</b></li>
+              <li><b>40000</b></li>
+              <li><b>45000</b></li>
+              <li><b>50000</b></li>
+              <li><b>55000</b></li>
+              <li><b>60000</b></li>
+              <li class="zero"><b>0</b></li>
+            </ol>
+          </th>
+        </tr>
+        
+        <!-- Data Rows -->
+        <tr class="firstRow">
+          <th scope="row">Edmonds</th>
+          <td><span style="width:10%"><b>90000</b></span></td>
+        </tr>
+        <tr>
+          <th scope="row">Mukilteo</th>
+          <td><span style="width:30%"><b>80000</b></span></td>
+        </tr>
+        <tr>
+          <th scope="row">Bothell</th>
+          <td><span style="width:20%"><b>49000</b></span></td>
+        </tr>
+        <tr>
+          <th scope="row">Lynnwood</th>
+          <td><span style="width:70%"><b>45000</b></span></td>
+        </tr>
+        <tr class="lastRow">
+          <th scope="row">Seattle</th>
+          <td><span style="width:40%"><b>40000</b></span></td>
+        </tr>
+        <tr>
+            <th scope="row">Everett</th>
+            <td><span style="width:70%"><b>35000</b></span></td>
+          </tr>
+      </tbody>
+
+    </table>
+  </figure>
+  
+</body>
+</html>

@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: start;
+}
+
+.options-container {
+    margin-bottom: 20px;
+}
+
+#product-display {
+    max-width: 800px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}

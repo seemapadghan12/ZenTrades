@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Display</title>
+    <link rel="stylesheet" href="task2_2.css">
+</head>
+<body>
+    <h2>task 2.2</h2>
+    <div class="container">
+        <div class="options-container">
+            <label for="displayOptions">Select Display Options:</label>
+            <select id="displayOptions" multiple>
+                <option value="Subcategory">Subcategory</option>
+                <option value="Title" selected>Title</option>
+                <option value="Price" selected>Price</option>
+                <option value="Popularity">Popularity</option>
+            </select>
+            <button onclick="moveSelectedOptions('displayOptions', 'availableOptions', false)"><<</button>
+            <button onclick="moveSelectedOptions('availableOptions', 'displayOptions', true)">>></button>
+        </div>
+        
+        <div id="product-display"></div>
+    </div>
+    <script src="task2_2.js"></script>
+</body>
+</html>

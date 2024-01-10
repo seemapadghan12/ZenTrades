@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="grid-container">
+
+
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-title">
+          <p class="font-weight-bold">Company Metrics</p>
+        </div>
+
+        <div class="main-cards">
+
+          <div class="card">
+            <span class="text-primary font-weight-bold">$406,411.29</span>
+            <div class="card-inner">
+              <p class="text-primary">Total Revenue</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="text-primary font-weight-bold">$620</span>
+            <div class="card-inner">
+              <p class="text-primary">Total Jobs Avg</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="text-primary font-weight-bold">655</span>
+            <div class="card-inner">
+              <p class="text-primary">Tickets created</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="text-primary font-weight-bold">735</span>
+            <div class="card-inner">
+              <p class="text-primary">Tickets scheduled</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="main-cards">
+
+          <div class="card">
+            <span class="text-primary font-weight-bold">$110,448.8</span>
+            <div class="card-inner">
+              <p class="text-primary">Outstanding Amount</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="text-primary font-weight-bold">105</span>
+            <div class="card-inner">
+              <p class="text-primary">Membership Sold</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="text-primary font-weight-bold">436</span>
+            <div class="card-inner">
+              <p class="text-primary">Jobs Completed</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="text-primary font-weight-bold">65</span>
+            <div class="card-inner">
+              <p class="text-primary">Tickets Canceled</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="charts">
+
+          <div class="charts-card">
+            <p class="chart-title">Revenue By Job Location</p>
+            <div id="bar-chart"></div>
+          </div>
+
+          <div class="charts-card">
+            <p class="chart-title">Revenue By Job Type</p>
+            <div id="bar-chart"></div>
+          </div>
+
+        </div>
+      </main>
+      <!-- End Main -->
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
